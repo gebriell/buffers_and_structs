@@ -1,11 +1,4 @@
 /**************************************************************
-* Class:  CSC-415-0# Summer 2021
-* Name: Robert Bierman
-* Student ID: 
-* GitHub Name: bierman
-* Project: Assignment 2 – Command Line Arguments
-*
-* File: assignment2.h
 *
 * Description: To show how to use ...
 *

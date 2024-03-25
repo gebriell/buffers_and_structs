@@ -36,14 +36,14 @@
 # Set your First name and your Last name 
 # Ensure there no spaces before or after your name
 
-FIRSTNAME=
-LASTNAME=
+FIRSTNAME=buffer
+LASTNAME=struct
 
 ##########################################################################
 # Do NOT modify anything below this line
 #########################################################################
 
-ROOTNAME=$(LASTNAME)_$(FIRSTNAME)_HW
+ROOTNAME=$(LASTNAME)_$(FIRSTNAME)
 HW=2
 FOPTION=_main
 # DO NOT CHANGE the RUNOPTIONS
