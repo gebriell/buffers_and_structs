@@ -1,12 +1,10 @@
-# File: Standard Makefile for CSC415
+# File: Standard Makefile
 #
 # Description - This make file should be used for all your projects
 # It should be modified as needed for each homework
 #
 # ROOTNAME should be set you your lastname_firstname_HW.  Except for
 # and group projects, this will not change throughout the semester
-#
-# HW should be set to the assignment number (i.e. 1, 2, 3, etc.)
 #
 # FOPTION can be set to blank (nothing) or to any thing starting with an 
 # underscore (_).  This is the suffix of your file name.
@@ -36,24 +34,21 @@
 # Set your First name and your Last name 
 # Ensure there no spaces before or after your name
 
-FIRSTNAME=buffer
-LASTNAME=struct
-
-##########################################################################
-# Do NOT modify anything below this line
-#########################################################################
+FIRSTNAME=struct
+LASTNAME=buffer
 
 ROOTNAME=$(LASTNAME)_$(FIRSTNAME)
-HW=2
 FOPTION=_main
+
 # DO NOT CHANGE the RUNOPTIONS
 RUNOPTIONS=$(FIRSTNAME) $(LASTNAME) "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal." $(TESTOPTIONS)
 
 CC=gcc
 CFLAGS= -g -I.
-# To add libraries, add "-l <libname>", for multiple repeat prior for each lib.
+
+# To add libraries, add "-l ", for multiple repeat prior for each lib.
 LIBS =
-DEPS = 
+DEPS =
 ARCH = $(shell uname -m)
 
 ifeq ($(ARCH), aarch64)
@@ -62,20 +57,19 @@ else
 	ARCHOBJ=assignment2.o
 endif
 
-OBJ = $(ROOTNAME)$(HW)$(FOPTION).o $(ARCHOBJ)
+OBJ = $(ROOTNAME)$(FOPTION).o $(ARCHOBJ)
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(ROOTNAME)$(HW)$(FOPTION): $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)  $(LIBS)
+$(ROOTNAME)$(FOPTION): $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-	rm $(ROOTNAME)$(HW)$(FOPTION).o $(ROOTNAME)$(HW)$(FOPTION)
+	rm $(ROOTNAME)$(FOPTION).o $(ROOTNAME)$(FOPTION)
 
-run: $(ROOTNAME)$(HW)$(FOPTION)
-	./$(ROOTNAME)$(HW)$(FOPTION) $(RUNOPTIONS) $(TESTOPTIONS)
+run: $(ROOTNAME)$(FOPTION)
+	./$(ROOTNAME)$(FOPTION) $(RUNOPTIONS) $(TESTOPTIONS)
 
-vrun: $(ROOTNAME)$(HW)$(FOPTION)
-	valgrind ./$(ROOTNAME)$(HW)$(FOPTION) $(RUNOPTIONS) $(TESTOPTIONS)
-
+vrun: $(ROOTNAME)$(FOPTION)
+	valgrind ./$(ROOTNAME)$(FOPTION) $(RUNOPTIONS) $(TESTOPTIONS)
